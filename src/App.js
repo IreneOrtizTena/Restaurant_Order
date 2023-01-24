@@ -1,158 +1,87 @@
-
 import "./App.css";
-import datajson from './data.json'
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import Hero from "./Hero";
+import Ordernow from "./Uorder";
+import Menu from "./Menu";
+import json from "./data.json";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { createContext } from "react";
+import About from "./About";
+import Spanishdishes from "./Spanishdishes";
+import Italiandishes from "./Italiandishes";
+import Booknow from "./Booknow";
+import Uorder from "./Uorder";
+import axios from "axios";
 
-const menu = [
-  {
-    id: "1",
-    name: "Fried Calamari",
-    description: "Calamari fried in flour and egg.",
-    price: "14€",
-    category: ["Spanish", "Fish"],
-  },
 
-  {
-    id: "2",
-    name: "Garlic Prawns",
-    description: "Prawns with garlic and parsley with olive oil.",
-    price: "15€",
-    category: ["Spanish", "Fish"],
-  },
-
-  {
-    id: "3",
-    name: "Hake with seafood",
-    description: "hake, garlic, peas and white wine.",
-    price: "18€",
-    category: ["Spanish", "Fish"],
-  },
-
-  {
-    id: "4",
-    name: "Sirloin with Whisky",
-    description: "Sirloin, Whisky, garlic with olive oil.",
-    price: "16€",
-    category: ["Spanish", "Meat"],
-  },
-
-  {
-    id: "5",
-    name: "Meatballs with Tomato and fried potatoes",
-    description:
-      "Beef meat, white wine, garlic, parsley, spanish tomatoes with olive oil.",
-    price: "14€",
-    category: ["Spanish", "Meat"],
-  },
-
-  {
-    id: "6",
-    name: "Serranito Sandwich",
-    description:
-      "Bread with pork steak, spanish ham, fresh tomatoes, fried green pepper with fried potatoes",
-    price: "17€",
-    category: ["Spanish", "Meat"],
-  },
-
-  {
-    id: "7",
-    name: "Tortilla de Patatas",
-    description: "Spanish tipical Omelette",
-    price: "10€",
-    category: ["Spanish", "Vegetarian"],
-  },
-
-  {
-    id: "8",
-    name: "Fried Eggplants",
-    description: "battered eggplant with Honey ",
-    price: "8€",
-    category: ["Spanish", "Vegetarian"],
-  },
-
-  {
-    id: "9",
-    name: "Aioli Potatoes",
-    description: "Boils Potatoes with Aioli ",
-    price: "8€",
-    category: ["Spanish", "Vegetarian"],
-  },
-];
-
-const order = [
-  {
-    number: "1259",
-    delivery: "Restaurant",
-    totalPrice: "89€",
-    totalItems: "5",
-    items: [
-      {
-        id: "8",
-        name: "Fried Eggplants",
-        description: "battered eggplant with Honey ",
-        price: "8€",
-        category: ["Spanish", "Vegetarian"],
-      },
-      {
-        id: "9",
-        name: "Aioli Potatoes",
-        description: "Boils Potatoes with Aioli ",
-        price: "8€",
-        category: ["Spanish", "Vegetarian"],
-      },
-    ],
-  },
-
-  {
-    number: "1286",
-    delivery: "Address",
-    totalPrice: "64€",
-    totalItems: "6",
-    items: [
-      {
-        id: "3",
-        name: "Hake with seafood",
-        description: "hake, garlic, peas and white wine.",
-        price: "18€",
-        category: ["Spanish", "Fish"],
-      },
-      {
-        name: "Sirloin with Whisky",
-        description: "Sirloin, Whisky, garlic with olive oil.",
-        price: "16€",
-        category: ["Spanish", "Meat"],
-      },
-    ],
-  },
-];
+export const menuContext = createContext();
 
 function App() {
 
-  return (
-    <div className="App"> 
+  const [dishes, setDishes] = useState()
+  const [categories, setCategories] = useState()
+  const [orders, setOrders] = useState()
+  const [spanish, setSpanish] = useState()
+  const [order, setOrder] = useState([])
 
-          {datajson && datajson.menu.map((i, j) => <h1 key={j}>(i.name)</h1>)}
-       
-          {/* <h2>{i.name}</h2>
-          <h3>{i.description}</h3>
-          <h4>{i.price}</h4> */}
-
-        </div>
-  );
-}
-     
-
-     {order.map (i =>
-       <div><h1>ORDERS</h1>
-        <p>{i.number}</p>
-      {i.items.map(a => <div><h4>{a.category[0]}</h4></div>)}
-    
-       </div>
-      )
-    } 
-     
-
+  function addItem(e) {
+    e.preventDefault();
+    let orderItem = {
+      item_id: e.target.itemId.value,
+      quantity: e.target.quantity.value,
+    };
+    setOrder((i) => [...i, orderItem]);
+  }
 
 
   
-export default App;
+  
+  // const [newOrder, setNewOrder] = useState([])
+  async function fetching  () {
+    axios('http://localhost:3000/dishes').then(i => setDishes(i.data))
+    axios('http://localhost:3000/categories').then(i => setCategories(i.data))
+     axios('http://localhost:3000/orders').then(i => setOrders(i.data))
+     
+  }
 
+  useEffect(() => {
+
+    fetching()
+
+  },[])
+
+
+  return (
+    <>
+    
+      <BrowserRouter>
+         <menuContext.Provider value={{ addItem, order, setOrder, spanish, orders, setOrders, categories, setCategories, dishes, setDishes }}> 
+       
+          <div
+            className="flex justify-between flex-col h-screen items-center bg-accent font-bold"
+            data-theme="autumn"
+          >
+            <Navbar /> 
+            <Routes>
+              <Route path="/" element={<Hero />} />
+              <Route path="/ordernow" element={<Ordernow />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/menu" element={<Menu />} /> 
+              <Route path="/spanishdishes" element={<Spanishdishes />} />
+              <Route path="/italiandishes" element={<Italiandishes />} /> 
+              <Route path="/booknow" element={<Booknow />} /> 
+              <Route path="/uorder" element={<Uorder />} />
+              
+            </Routes>
+
+            <Footer />
+          </div>
+        </menuContext.Provider>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
