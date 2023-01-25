@@ -54,15 +54,7 @@ function Menu() {
           </div>
         ))}
 
-      {/* <button onClick={() => setShowDrinks(!showDrinks)} className="btn">
-        {" "}
-        Drinks
-      </button>
-      
-      <button onClick={() => setShowDesserts(!showDesserts)} className="btn">
-        Desserts
-      </button> */}
-
+     
       {dishes
         .filter((item) => item.category_id == 4)
         .map((i) => (
@@ -74,7 +66,12 @@ function Menu() {
               <h3>Price: {i.price} </h3>
               <div className="card-actions justify-end">
                 <form onSubmit={addItem} className="card-actions justify-end">
-                  <input type="number" min="1" name="quantity" />
+                  <input type="number" 
+                   placeholder="Type here"
+                   defaultValue={1}
+                   min="1" 
+                   name="quantity" 
+                   className="input input-bordered" />
                   <button
                     name="itemId"
                     value={i.id}
