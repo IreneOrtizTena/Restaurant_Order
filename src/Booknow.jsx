@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import React, { useState } from "react";
 
 function Booknow() {
@@ -10,53 +10,54 @@ function Booknow() {
   };
 
   return (
+    <form className="form-style space-y-4 " onSubmit={handleSubmit}>
+      <label>
+        Name and Surname:
+        <input
+          class="w-96 rounded-lg border-gray-200 p-3 text-sm"
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+      </label>
 
-    <div>
-
-      
-      <form className="form-style" onSubmit={handleSubmit}>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 "> </div>
+      <label className="">
+        Tlf:
+        <input
+          class='class="w-96 rounded-lg border-gray-200 p-3 text-sm"'
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
         <label>
-          Name and Surname:
+          E-mail:
           <input
+            class="w-96 rounded-lg border-gray-200 p-3 text-sm"
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
         </label>
         <label>
-          Tlf:
-          <input className=''
+          Persons:
+          <input
+            class="w-20 rounded-lg border-gray-200 p-3 text-sm"
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <label>
-            Choose your date:
-            <input type="date" onChange={(e) => setDate(e.target.value)} />
-          </label>
         </label>
-
-        
-      </form>
-     
-
-
-{/* The button to open modal */}
-
-<label htmlFor="my-modal-3" className="btn mt-6 text-zinc-800">Booking!</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-3" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box relative">
-    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 className="text-lg text-zinc-900 font-bold">Congratulations your table is reserved!</h3>
-    <p className="py-4">Please arrive 10 minutes before your reservation time.</p>
-  </div>
-</div>
-
-</div>
-   
+        <label>
+          Choose your date:
+          <input
+            class='class="w-96 rounded-lg border-gray-200 p-3 text-sm" '
+            type="date"
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </label>
+      </label>
+    </form>
   );
 }
 

@@ -2,16 +2,20 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import About from './About';
 import { menuContext } from "./App";
+import Contact from './Contact';
 
 function Footer() {
   return (
-    <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+    <footer className="footer footer-center p-10 bg-amber-50 text-base-content rounded text-red-900 text-lg">
   <div className="grid grid-flow-col gap-4">
     
   <a><Link to={'/About'} className="link link-hover">About us</Link></a> 
-    <a className="link link-hover">Contact</a> 
+    <a><Link to={'/Contact'}className="link link-hover">Contact</Link></a> 
     <a className="link link-hover">Address</a> 
-    <a className="link link-hover">Opening Hours</a>
+    <a className="link link-hover">Opening Hours </a>
+   
+    
+
   </div> 
   <div>
     <div className="grid grid-flow-col gap-4">

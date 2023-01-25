@@ -14,6 +14,7 @@ import Italiandishes from "./Italiandishes";
 import Booknow from "./Booknow";
 import Uorder from "./Uorder";
 import axios from "axios";
+import Contact from "./Contact";
 
 
 export const menuContext = createContext();
@@ -25,6 +26,7 @@ function App() {
   const [orders, setOrders] = useState()
   const [spanish, setSpanish] = useState()
   const [order, setOrder] = useState([])
+  const [total, settotal] = useState(0)
 
   function addItem(e) {
     e.preventDefault();
@@ -57,10 +59,10 @@ function App() {
     <>
     
       <BrowserRouter>
-         <menuContext.Provider value={{ addItem, order, setOrder, spanish, orders, setOrders, categories, setCategories, dishes, setDishes }}> 
+         <menuContext.Provider value={{total, settotal, addItem, order, setOrder, spanish, orders, setOrders, categories, setCategories, dishes, setDishes }}> 
        
           <div
-            className="flex justify-between flex-col h-screen items-center bg-accent font-bold"
+            className="flex justify-between flex-col min-h-screen items-center bg-accent font-bold"
             data-theme="autumn"
           >
             <Navbar /> 
@@ -68,6 +70,7 @@ function App() {
               <Route path="/" element={<Hero />} />
               <Route path="/ordernow" element={<Ordernow />} />
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/menu" element={<Menu />} /> 
               <Route path="/spanishdishes" element={<Spanishdishes />} />
               <Route path="/italiandishes" element={<Italiandishes />} /> 
@@ -77,6 +80,7 @@ function App() {
             </Routes>
 
             <Footer />
+           
           </div>
         </menuContext.Provider>
       </BrowserRouter>

@@ -5,7 +5,6 @@ function About() {
     <section>
       <div class="mx-auto max-w-screen-xl px-2 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div class="max-w-3xl">
-          <h1 class="mb-4 font-bold sm:text-6xl text-end text-inherit">ABOUT US</h1>
           <h2 class="text-3xl font-bold sm:text-4xl">
             Our menu highlights things that utilize the sound and fragrant
             flavors, however, forget the stuffing ghee, spread, oil, and

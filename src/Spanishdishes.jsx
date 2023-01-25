@@ -14,14 +14,13 @@ function Spanishdishes() {
     dishes,
     setDishes,
     addItem,
+    price,
   } = useContext(menuContext);
-
-  
 
   useEffect(() => {}, []);
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl justify-between">
+    <div className="card m-5 w-96 bg-base-100 shadow-xl justify-between">
       {dishes
         .filter((item) => item.category_id == 1)
         .map((i) => (
@@ -32,14 +31,29 @@ function Spanishdishes() {
               <p>{i.description} </p>
               <h3>Price: {i.price} </h3>
               <div className="card-actions justify-end">
-              <form onSubmit={addItem} className="card-actions justify-end">
-                <input type="number" min="1" name="quantity" />
-                <button name="itemId" value={i.id} className="btn btn-primary">
-                  ADD
-                </button>
-              </form>
+                <form onSubmit={addItem} className="card-actions justify-end">
+                  <input
+                    type="number"
+                    placeholder="Type here"
+                    min="1"
+                    defaultValue={1}
+                    
+                    name="quantity"
+                    className="input input-bordered "
+                  />
+
+                  <button
+                    name="itemId"
+                    value={i.id}
+                    className="btn btn-primary"
+                  >
+                    ADD
+                    
+                  </button>
+                  
+                </form>
+              </div>
             </div>
-          </div>
           </div>
         ))}
     </div>
