@@ -22,7 +22,7 @@ function About() {
           </div>
 
           <div class="lg:py-20">
-            <article class="space-y-4 text-gray-600 ">
+            <article class="space-y-4 text-gray-600 text-xl">
               <p className="bonheur-royale">
                 We welcome you to sit back, unwind and appreciate the lovely
                 sights and hints of the ocean while our best gourmet expert sets

@@ -10,7 +10,7 @@ function Booknow() {
   };
 
   return (
-    <form className="form-style space-y-4 " onSubmit={handleSubmit}>
+    <form className="form-style space-y-4 text-2xl" onSubmit={handleSubmit}>
       <label>
         Name and Surname:
         <input

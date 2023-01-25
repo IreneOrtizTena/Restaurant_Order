@@ -14,7 +14,7 @@ function Hero() {
       <div className="hero-content text-center text-neutral-content ">
         <div className="max-w-md ">
           <h1 className="mb-5 text-5xl font-bold ">DEAR GUEST</h1>
-          <p className="mb-5 text-lg">
+          <p className="mb-5 text-2xl">
             In the heart of Munich, we take you on a gastronomic journey to
             Spain and Italy and enchant your taste buds. On our menu you will
             find a wide variety of starters and typical Spanish and Italian

@@ -3,7 +3,7 @@ import React from "react";
 function Contact() {
   return (
     <>
-      <div className="py-4 lg:py-8  relative m-6"
+      <div className="py-4 lg:py-8  relative m-6 text-xl"
       data-theme="autumn">
         <img
           src="https://cdn.tuk.dev/assets/templates/radian/Back_Image.png"

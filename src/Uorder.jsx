@@ -44,9 +44,9 @@ function Uorder() {
 
   return (
     <div>
-      <div className="card w-auto bg-neutral text-neutral-content" data-theme="autumn">
+      <div className="card w-auto bg-neutral text-neutral-content text-2xl" data-theme="autumn">
         <div className="card-body items-center text-left">
-          <h2 className="card-title">Your Order!!</h2>
+          <h2 className="card-title text-2xl">Your Order!!</h2>
 
           {order.map((i) => (
             <>
@@ -70,7 +70,7 @@ function Uorder() {
       <div className="card-actions justify-center">
         <label
           htmlFor="my-modal-6"
-          className="btn mt-6 text-zinc-800 space-x-10 text-lg"
+          className="btn mt-6 text-zinc-800 space-x-10 text-2xl"
         >
           BUY
         </label>

@@ -20,18 +20,18 @@ function Spanishdishes() {
   useEffect(() => {}, []);
 
   return (
-    <div className="card m-5 w-96 bg-base-100 shadow-xl justify-between">
+    <div className="card m-5 w-96 bg-base-100 shadow-xl justify-between text-xl">
       {dishes
         .filter((item) => item.category_id == 1)
         .map((i) => (
           <div>
             <div className="card-body">
               <img src={i.photo} alt="" />
-              <h2 className="card-title">{i.name} </h2>
+              <h2 className="card-title text-2xl">{i.name} </h2>
               <p>{i.description} </p>
               <h3>Price: {i.price} </h3>
-              <div className="card-actions justify-end">
-                <form onSubmit={addItem} className="card-actions justify-end">
+              <div className="card-actions justify-end ">
+                <form onSubmit={addItem} className="card-actions justify-end ">
                   <input
                     type="number"
                     placeholder="Type here"

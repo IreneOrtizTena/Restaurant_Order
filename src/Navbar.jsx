@@ -5,7 +5,7 @@ import OrderNow from "./Uorder";
 
 function Navbar() {
   return (
-    <div className="navbar bg-amber-50 py-2.5 mx-5 min-h-4 text-red-900 text-xl ">
+    <div className="navbar bg-amber-50 py-2.5 mx-5 min-h-4 text-red-900 text-2xl ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

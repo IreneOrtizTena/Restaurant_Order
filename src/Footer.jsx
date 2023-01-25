@@ -6,7 +6,7 @@ import Contact from './Contact';
 
 function Footer() {
   return (
-    <footer className="footer footer-center p-10 bg-amber-50 text-base-content rounded text-red-900 text-lg">
+    <footer className="footer footer-center p-10 bg-amber-50 text-base-content rounded text-red-900 text-2xl">
   <div className="grid grid-flow-col gap-4">
     
   <a><Link to={'/About'} className="link link-hover">About us</Link></a> 
