@@ -29,7 +29,7 @@ function Spanishdishes() {
               <img src={i.photo} alt="" />
               <h2 className="card-title text-2xl">{i.name} </h2>
               <p>{i.description} </p>
-              <h3>Price: {i.price} </h3>
+              <h3>Price: {i.price}€ </h3>
               <div className="card-actions justify-end ">
                 <form onSubmit={addItem} className="card-actions justify-end ">
                   <input
